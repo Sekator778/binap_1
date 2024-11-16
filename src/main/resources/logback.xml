@@ -1,14 +1,23 @@
 <configuration>
+
+    <!-- Asynchronous logging for better performance -->
     <appender name="ASYNC" class="ch.qos.logback.classic.AsyncAppender">
-        <appender-ref ref="FILE" />
+        <appender-ref ref="CONSOLE" />
+        <!-- Buffer size can be adjusted as needed -->
+        <queueSize>5000</queueSize>
     </appender>
-    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-        <file>logs/app.log</file>
+
+    <!-- Console appender -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- Pattern can be customized -->
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
+
+    <!-- Root logger configuration -->
     <root level="info">
         <appender-ref ref="ASYNC" />
     </root>
+
 </configuration>

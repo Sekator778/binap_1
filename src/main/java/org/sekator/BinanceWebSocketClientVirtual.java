@@ -14,11 +14,11 @@ import java.util.concurrent.CompletionStage;
  * @author Sekator
  * @created Nov 16, 2024
  */
-public class BinanceWebSocketClient {
+public class BinanceWebSocketClientVirtual {
 
     private static final String BINANCE_WS_URL = "wss://stream.binance.com:9443/ws/btcusdt@trade";
     private static final Gson gson = new Gson();
-    private static final Logger logger = LoggerFactory.getLogger(BinanceWebSocketClient.class);
+    private static final Logger logger = LoggerFactory.getLogger(BinanceWebSocketClientVirtual.class);
 
     public static void main(String[] args) {
         HttpClient client = HttpClient.newHttpClient();
